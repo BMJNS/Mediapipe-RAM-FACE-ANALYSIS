@@ -10,8 +10,9 @@ BASE_DIR = "/Users/bmjonas04/Desktop/ACABI/hand_test"
 BASELINE_IMAGE_PATH = f"{BASE_DIR}/photo 2.jpg"
 VIDEO_PATH = f"{BASE_DIR}/video 2.mov"
 
+# used for hand number and alos how many windows for the moving average
 MAX_NUM_HANDS = 1
-SMOOTH_WINDOW = 10   # for cycle detection smoothing
+SMOOTH_WINDOW = 10
 
 # ----------------- MediaPipe setup -----------------
 mp_hands = mp.solutions.hands
