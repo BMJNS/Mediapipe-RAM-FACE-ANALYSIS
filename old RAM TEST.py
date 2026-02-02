@@ -7,8 +7,8 @@ import numpy as np
 
 # ----------------- Paths / Config -----------------
 BASE_DIR = "/Users/bmjonas04/Desktop/ACABI/hand_test"
-BASELINE_IMAGE_PATH = f"{BASE_DIR}/photo 2.jpg"
-VIDEO_PATH = f"{BASE_DIR}/video 2.mov"
+BASELINE_IMAGE_PATH = f"{BASE_DIR}/photo 3.jpg"
+VIDEO_PATH = f"{BASE_DIR}/video 3.mov"
 
 # used for hand number and also how many windows for the moving average
 
@@ -37,16 +37,36 @@ def compute_amplitude(hand_landmarks, img_shape):
     return distance_px(wrist, middle_tip, img_shape)
 
 def simple_moving_average(values, window):
+    '''
+    Return a list of values for the moving avergaes of the amplitudes during the video
+    based on the window size.
+
+    :param values: List of amplitudes
+    :param window: Window size of moving average
+    :return:
+    '''
+
+    # if window too small or we have less values than the window just return copy
     if window <= 1 or len(values) <= window:
         return values[:]
+
+    # cumsum will be sum of nums for current "window" using sliding window of adding new and removing old
     out = []
     cumsum = 0.0
     for i, v in enumerate(values):
+
+        # add new val to window
         cumsum += v
+
+        # with new added val if total num bigger then window remove oldest
         if i >= window:
             cumsum -= values[i - window]
+
+
         if i >= window - 1:
             out.append(cumsum / window)
+
+        # if at beginning and dont have full window yet
         else:
             out.append(cumsum / (i + 1))
     return out
