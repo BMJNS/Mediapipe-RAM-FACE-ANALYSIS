@@ -1,0 +1,17 @@
+# PyCharm
+.idea/
+*.iml
+
+# Python environments / cache
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Raw data
+data/raw/
+
+# Generated figures
+figures/

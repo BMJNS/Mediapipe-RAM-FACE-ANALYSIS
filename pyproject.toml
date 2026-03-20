@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mediapipe-project"
+version = "0.1.0"
+description = "Face analysis research code for ACABI Lab"
+authors = ["BMJNS <148365539+BMJNS@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mediapipe = "^0.10.33"
+opencv-python = "^4.13.0.92"
+matplotlib = "^3.10.8"
+numpy = "^2.4.3"
+pandas = "^3.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
