@@ -22,7 +22,7 @@ def get_files(directory: str) -> List[str]:
     return found_files
 
 
-def files_search(*terms: str, directory: str=CODE_DIR) -> List[str]:
+def search_files(*terms: str, directory: str=CODE_DIR) -> List[str]:
     assert os.path.exists(directory)
 
     files = get_files(directory)
